@@ -3,8 +3,31 @@
 <head>
 	<title>ACIP</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-</head>
-<body>
+	<script>
+		function commit()
+		{
+			var link = "acmanager://race/online/join?query=race/online/join&ip=" + document.getElementById("ip").value + "&httpPort=" + document.getElementById("port").value;
+			window.open(link);
+		};
+		var getdata = $.get('https://www.cloudflare.com/cdn-cgi/trace');
+		function getmyip()
+		{
+			properties = getdata.responseText.split('\n');
+			var ipprop = properties[2];
+			alert(ipprop);
+			var ip = "";
+			for (var i = 3; i < ipprop.length; i++)
+			{
+				ip += ipprop[i];
+			};
+			document.getElementById("ip").value = ip;
+		};
+		
+		function copytoclipboard()
+		{
+			navigator.clipboard.writeText("acmanager://race/online/join?query=race/online/join&ip=" + document.getElementById("ip").value + "&httpPort=" + document.getElementById("port").value);
+		};
+;	</script>
 	<style>
 		#ip:focus {
 			outline: none;
@@ -81,31 +104,8 @@
 			padding: 0;
 		}
 	</style>
-	<script>
-		function commit()
-		{
-			var link = "acmanager://race/online/join?query=race/online/join&ip=" + document.getElementById("ip").value + "&httpPort=" + document.getElementById("port").value;
-			window.open(link);
-		};
-		var getdata = $.get('https://www.cloudflare.com/cdn-cgi/trace');
-		function getmyip()
-		{
-			properties = getdata.responseText.split('\n');
-			var ipprop = properties[2];
-			var i;
-			var ip = "";
-			for (i = 3; i <= properties.length; i++)
-			{
-				ip += ipprop[i];
-			};
-			document.getElementById("ip").value = ip;
-		};
-		
-		function copytoclipboard()
-		{
-			navigator.clipboard.writeText("acmanager://race/online/join?query=race/online/join&ip=" + document.getElementById("ip").value + "&httpPort=" + document.getElementById("port").value);
-		};
-;	</script>
+</head>
+<body>
 	<div id="pp">
 	</div>
 	<div id="wp1">
