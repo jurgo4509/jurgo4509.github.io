@@ -1,0 +1,51 @@
+body {
+    background-color: #FFFDDD;
+}
+
+div {
+    font-family: "Courier New", monospace;
+    font-size: 17pt;
+    max-width: 80vw;
+}
+
+.center {
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+}
+
+#clockcanva {
+    max-width: 60vw;
+    margin-top: 15vh;
+}
+
+#datums {
+    color: red;
+}
+
+button {
+    border: none;
+    font-family: "Courier New", monospace;
+    font-size: 15pt;
+    padding: 7px 20px;
+}
+
+.poga-style0 {
+    background-color: #000;
+    border-bottom: solid #0f0 3px;
+    color: #0f0;
+}
+
+.poga-style0:hover {
+    background-color: #101010;
+}
+
+.poga-style1 {
+    background-color: #FFFDDD;
+    border-bottom: solid #000 3px;
+    color: #000;
+}
+
+.poga-style1:hover {
+    background-color: #FF0;
+}

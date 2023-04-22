@@ -1,1 +1,1 @@
-# [jurgo4509.github.io](https://jurgo4509.github.io/)
+# [https://jurgo.org/](https://jurgo.org/)
