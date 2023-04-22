@@ -1,41 +1,3 @@
-function getCookie(cname){      // Cookie dekodētājs no https://www.w3schools.com/js/js_cookies.asp
-    let name = cname + "=";
-    let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
-    for(let i = 0; i <ca.length; i++) {
-      let c = ca[i];
-      while(c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if(c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-}
-
-let clockColor = '#0F0';
-let backgroundColor = '#000';
-
-switch(getCookie("lightmode")){     // ielādē iestatījumus no saglabātā cookie
-    case "0":
-        clockColor = '#0F0';
-        backgroundColor = '#000';
-        // console.log("Light mode DISABLED");
-        break;
-    case "1":
-        clockColor = '#000000';
-        backgroundColor = '#FFFDDD';
-        // console.log("Light mode ENABLED");
-        break;
-}
-
-window.addEventListener("load",function() { changeColors(backgroundColor, clockColor) });   // iestata background krāsu ielādējot mājaslapu
-
-let canvas = document.getElementById("clockcanva");
-let ctx = canvas.getContext("2d");
-ctx.translate(175, 175);
-
 let weekday = [
     "Sunday",
     "Monday",
@@ -62,28 +24,96 @@ let months = [
 ];
 
 
-function colorMode(){   // iestata pretējo lapas stila režīmu un saglabā to cookie kad tiek nospiesta poga 
-    let lm;
-    if(getCookie("lightmode") == "1"){
-        lm = 0;
+function getCookie(cname){      // Cookie dekodētājs no https://www.w3schools.com/js/js_cookies.asp
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while(c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if(c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
     }
-    else {
-        lm = 1;
+    return "";
+}
+
+
+let clockColor = '#000';    // noklusējuma krāsas
+let backgroundColor = '#F8F2DC';
+let secondColor = '#F00';
+
+let canvas = document.getElementById("clockcanva");     // canvas iestatīšana
+let ctx = canvas.getContext("2d");
+ctx.translate(175, 175);
+
+switch(getCookie("styleInt")){     // ielādē iestatījumus no saglabātā cookie
+    case "0":
+        clockColor = '#000';
+        backgroundColor = '#F8F2DC';
+        secondColor = '#F00';
+        break;
+    case "1":
+        clockColor = '#FFF';
+        backgroundColor = '#070d23';
+        secondColor = '#0FF';
+        break;
+    case "2":
+        clockColor = '#0F0';
+        backgroundColor = '#000';
+        secondColor = '#F00';
+        break;
+}
+
+window.addEventListener("load",changeColors(backgroundColor, clockColor, getCookie("styleInt")));   // iestata background krāsu ielādējot mājaslapu
+
+
+function changeColors(bgColor, altColor, selectedStyle) {  // krāsu maiņas funkcija
+    document.body.style.background = bgColor;
+    document.getElementById("datums").style.color = altColor;
+    let Buttons = document.querySelectorAll("#modeButton");
+    for(let i = 0; i < Buttons.length; i++) {
+        Buttons[i].classList.remove('.poga-style0','poga-style1','poga-style2');
+        Buttons[i].classList.add('poga-style' + selectedStyle);
     }
-    document.cookie = "lightmode=" + lm + "; expires=Thu, 18 Mar 2027 12:00:00 UTC; path=/; SameSite=Lax";
-    switch(getCookie("lightmode")){
-        case "0":
+}
+
+
+function colorMode(){   // iestata nākamo lapas stila režīmu un saglabā to cookie kad tiek nospiesta poga 
+    let styleSelector = parseInt(getCookie("styleInt"));
+    if(styleSelector < 2){
+        styleSelector++;
+    }
+    else{
+        styleSelector = 0;
+    }
+    switch(styleSelector){
+        case 0:
+            clockColor = '#000';
+            backgroundColor = '#F8F2DC';
+            secondColor = '#F00';
+            break;
+        case 1:
+            clockColor = '#FFF';
+            backgroundColor = '#070d23';
+            secondColor = '#0FF';
+            break;
+        case 2:
             clockColor = '#0F0';
             backgroundColor = '#000';
-            // console.log("Light mode DISABLED");
-            break;
-        case "1":
-            clockColor = '#000000';
-            backgroundColor = '#FFFDDD';
-            // console.log("Light mode ENABLED");
+            secondColor = '#F00';
             break;
     }
-    changeColors(backgroundColor, clockColor);
+    changeColors(backgroundColor, clockColor, styleSelector);
+    let now = new Date();
+    let time = now.getTime();
+    let expireDate = time + 365 * 24 * 60 * 60 * 1000;
+    now.setTime(expireDate);
+    document.cookie = "styleInt=" + styleSelector + 
+    "; expires=" + now.toUTCString() + 
+    "path=/; SameSite=Lax";
 }
 
 
@@ -135,7 +165,7 @@ function drawClock(){
     ctx.rotate((min + sec / 60) * 6 * Math.PI / 180);
     ctx.fillRect(-5,0,10,-120)
 
-    ctx.fillStyle = "#FF0000";  // uzzīmē mazo sarkano punktu centrā
+    ctx.fillStyle = secondColor;  // uzzīmē mazo sarkano punktu centrā
     ctx.beginPath();
     ctx.arc(0,0,4,0,2*Math.PI);
     ctx.fill();
@@ -173,17 +203,5 @@ function drawClock(){
     (String(sec).padStart(2, '0'));
 }
 
-
-function changeColors(bgColor, altColor) {  // krāsu maiņas funkcija
-    document.body.style.background = bgColor;
-    document.getElementById("datums").style.color = altColor;
-}
-
-
-function changeClassMoment() {
-    let Buttone = document.getElementById('modeButton');
-    Buttone.classList.remove('.poga-style0','poga-style1');
-    Buttone.classList.add('poga-style1');
-}
 
 setInterval(drawClock, 16); // zīmē pulksteni ik pēc 16ms, (60 reizes sekundē)

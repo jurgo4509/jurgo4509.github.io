@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>joskepage</title>
-        <link rel="stylesheet" href="index.css">
+        <title>Hangman</title>
+        <meta content="Joske" name="author">
+        <meta content="Joske webpage of great glory!" name="description">
+        <meta content="jurgo.org" property="og:title" />
+        <meta content="Joske webpage of great glory!" property="og:description" />
+        <meta content="https://jurgo.org/" property="og:url" />
+        <meta content="https://jurgo.org/content/icon.png" property="og:image" />
+        <meta content="#76257E" data-react-helmet="true" name="theme-color" />
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="/content/favicon.ico">
         <meta charset="UTF-8">
-        <meta name="author" content="Joske">
-        <meta name="description" content="Joske webpage">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
@@ -15,6 +21,10 @@
         <div class="center">
             <p id="datums">Tuesday 18th April 2023 10:53:35</p>
         </div>
-        <script src="script.js"></script>
+        <div class="center">
+            <button id="modeButton" class="poga-style0" onclick="colorMode()">Color</button>
+            <a href="index.html"> <button id="modeButton" class="poga-style0">Clock</button></a>
+        </div>
+        <script src="js/hangman.js"></script>
     </body>
 </html>
