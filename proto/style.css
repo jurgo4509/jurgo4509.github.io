@@ -57,6 +57,12 @@ html, body {
                 width: 300px;
             }
 
+                canvas {
+                    width: 85%;
+                    height: 85%;
+                    margin: calc(15% / 2);
+                }
+
         #bottomBar {
             position: absolute;
             background-color: #070707;
