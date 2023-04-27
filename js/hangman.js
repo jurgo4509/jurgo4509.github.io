@@ -127,6 +127,7 @@ function resetGame(status){
             ctx.clearRect(0,0,300,350);
             ctx.beginPath();
             ctx.lineWidth = "10";
+            ctx.strokeStyle = blokeColor;
             ctx.moveTo(225,40);
             ctx.lineTo(75,310);
             ctx.moveTo(75,40);
@@ -138,6 +139,7 @@ function resetGame(status){
             ctx.clearRect(0,0,300,350);
             ctx.beginPath();
             ctx.lineWidth = "10";
+            ctx.strokeStyle = blokeColor;
             ctx.moveTo(80,220);
             ctx.lineTo(125,280);
             ctx.lineTo(225,40);
