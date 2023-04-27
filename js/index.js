@@ -1,3 +1,13 @@
+if(document.cookie == ""){
+    let x = new Date();
+    let t = x.getTime();
+    let expire = t + 365 * 24 * 60 * 60 * 1000;
+    x.setTime(expire);
+    document.cookie = "styleInt=" + 0 + 
+    "; expires=" + x.toUTCString() + 
+    "path=/; SameSite=Lax";
+}
+
 let weekday = [
     "Sunday",
     "Monday",

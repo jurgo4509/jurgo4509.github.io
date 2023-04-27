@@ -2,24 +2,25 @@
 <html>
     <head>
         <title>Hangman</title>
-        <meta content="Joske" name="author">
-        <meta content="Joske webpage of great glory!" name="description">
-        <meta content="jurgo.org" property="og:title" />
-        <meta content="Joske webpage of great glory!" property="og:description" />
-        <meta content="https://jurgo.org/" property="og:url" />
-        <meta content="https://jurgo.org/content/icon.png" property="og:image" />
-        <meta content="#76257E" data-react-helmet="true" name="theme-color" />
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="/content/favicon.ico">
         <meta charset="UTF-8">
+        <link href="style.css" rel="stylesheet" type="text/css" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="center">
-            <canvas id="clockcanva" width="350" height="350"></canvas>
+        <div id="flexbox" class="center">
+            <div class="center">
+                <canvas id="canvo" width="300" height="350" class="hangmanCanvas"></canvas> 
+            </div>
+            <div id="flexor" class="center">
+                <p id="p1">Minētie burti:</p>
+                <p><span id="wrong"></span></p>
+            </div>
         </div>
-        <div class="center">
-            <p id="datums">Tuesday 18th April 2023 10:53:35</p>
+        <div class="center" id="guessDiv">
+            <p id="guessing" class="wordGuess"> </p>
+        </div>
+        <div id="inputField" class="center">
+            <input type="text" id="inputType" name="Guess" maxlength="1">
         </div>
         <div class="center">
             <button id="modeButton" class="poga-style0" onclick="colorMode()">Color</button>

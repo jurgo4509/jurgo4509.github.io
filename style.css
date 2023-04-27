@@ -1,7 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
+
 div {
-    font-family: "Courier New", monospace;
+    font-family: 'Inconsolata', monospace;
     font-size: 17pt;
     max-width: 80vw;
+}
+
+#flexbox {
+    padding-top: 70px;
+    display: flex;
+    gap: 100px;
+}
+
+#flexor {
+    max-width: 159px;
 }
 
 .center {
@@ -17,7 +29,7 @@ div {
 
 button {
     border: none;
-    font-family: "Courier New", monospace;
+    font-family: 'Inconsolata', monospace;
     font-size: 15pt;
     padding: 7px 20px;
 }
@@ -57,4 +69,24 @@ body {
 
 .poga-style2:hover {
     background-color: #ffffff3f;
+}
+
+.wordGuess {
+    padding-top: 40px;
+    margin: 10px;
+    font-size:40px;
+    letter-spacing: 10px;
+}
+
+#inputType {
+    font-family: 'Inconsolata', monospace;
+    width: 100px;
+    font-size: 50px;
+    border: none;
+    text-align: center;
+    border-bottom: black 3px dotted;
+}
+
+#inputField {
+    padding: 20px;
 }
