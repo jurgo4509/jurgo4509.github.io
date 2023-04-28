@@ -1,19 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200&display=swap');
 
-div {
-    font-family: 'Inconsolata', monospace;
-    font-size: 17pt;
-    max-width: 80vw;
-}
-
-#flexbox {
-    padding-top: 70px;
-    display: flex;
-    gap: 100px;
-}
-
-#flexor {
-    max-width: 159px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 .center {
@@ -22,71 +12,108 @@ div {
     height: fit-content;
 }
 
-#clockcanva {
-    max-width: 60vw;
-    margin-top: 15vh;
-}
-
-button {
-    border: none;
-    font-family: 'Inconsolata', monospace;
-    font-size: 15pt;
-    padding: 7px 20px;
-}
-
-body {
-    background-color: #F8F2DC;
-}
-
-
-.poga-style0 {
-    background-color: #F8F2DC;
-    border-bottom: solid #000 3px;
-    color: #000;
-}
-
-.poga-style0:hover {
-    background-color: #0000003f;
-}
-
-
-.poga-style1 {
-    background-color: #070d23;
-    border-bottom: solid #FFF 3px;
-    color: #FFF;
-}
-
-.poga-style1:hover {
-    background-color: #0000003f;
-}
-
-
-.poga-style2 {
-    background-color: #000;
-    border-bottom: solid #0F0 3px;
+.topBar {
+    height: 20px;
+    border-bottom: #0F0 solid 1px;
+    background-color: #00ff004d;
     color: #0F0;
-}
-
-.poga-style2:hover {
-    background-color: #ffffff3f;
-}
-
-.wordGuess {
-    padding-top: 40px;
-    margin: 10px;
-    font-size:40px;
-    letter-spacing: 10px;
-}
-
-#inputType {
+    font-size: 11pt;
+    padding: 1px;
+    padding-left: 5px;
     font-family: 'Inconsolata', monospace;
-    width: 100px;
-    font-size: 50px;
-    border: none;
-    text-align: center;
-    border-bottom: black 3px dotted;
 }
 
-#inputField {
-    padding: 20px;
+.verFlexContainer {
+    display: flex;
+    flex-direction: column;
 }
+
+.verFlexContainer > div {
+    border: 1px #0F0 solid;
+    margin: 5px;
+}
+
+html, body {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+}
+
+    #mainContainer {
+        color: white;
+        background-color: #121215;
+        width: 100vw;
+        height: 100vh;
+        max-width: 960px;
+    }
+
+        #horFlexContainer {
+            display: flex;
+            background-color: #000000;
+            padding: 5px;
+            width: 100%;
+            height: 100%;
+            max-width: 960px;
+        }
+        
+        #horFlexContainer > div{
+            background-color: #000000;
+        }
+
+            #mainpage {
+                flex: 1;
+            }
+
+                #titleContainer {
+                    height: 120px;
+                }
+
+                    #title {
+                        height: 100%;
+                        line-height: 2.3;
+                        color: #0F0;
+                        font-size: 40px;
+                        font-family: 'Inconsolata', monospace;
+                        text-align: center;
+                    }
+
+                #blogContainer {
+                    flex: 1;
+                }
+
+                    #blog {
+                        height: calc(100% - 20px);
+                        color: #0F0;
+                        padding: 10px;
+                        font-size: 15pt;
+                        font-family: 'Inconsolata', monospace;
+                        text-align: center;
+                    }
+
+            #sidepage {
+                width: 312px;
+            }
+
+                #clockContainer {
+                    height: 322px;
+                }
+
+                    #clock {
+                        height: calc(100% - 20px);
+                    }
+
+                        #clockCanvas {
+                            margin: 5%;
+                            height: 90%;
+                            width: 90%;
+                        }
+
+                #matrixRainContainer {
+                    flex: 1;
+                    max-height: calc(100vh - 352px);
+                }
+
+                    #matrixRain {
+                        height: calc(100% - 20px);
+                        overflow: hidden;
+                    }

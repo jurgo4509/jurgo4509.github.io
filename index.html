@@ -1,22 +1,56 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Clock</title>
+        <title>jurgo.org</title>
+        <meta content="Joske" name="author">
+        <meta content="Joske webpage" name="description">
+        <meta content="jurgo.org" property="og:title" />
+        <meta content="Joske webpage" property="og:description" />
+        <meta content="https://jurgo.org/" property="og:url" />
+        <meta content="https://jurgo.org/content/stagea-pfp.png" property="og:image" />
+        <meta content="#76257E" data-react-helmet="true" name="theme-color" />
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="/content/stagea-pfp.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div class="center">
-            <canvas id="clockcanva" width="350" height="350"></canvas>
+        <div id="mainContainer" class="center">
+            <div id="horFlexContainer" class="center">
+                <div class="verFlexContainer" id="mainpage">
+                    <div id="titleContainer">
+                        <div class="topBar"> hello.exe </div>
+                        <div id="title">
+                            <p>jurgo.org</p>
+                        </div>
+                    </div>
+                    <div id="blogContainer">
+                        <div class="topBar"> stuff_things.exe </div>
+                        <div id="blog">
+                            hi :3
+                        </div>
+                    </div>
+                </div>
+                <div class="verFlexContainer" id="sidepage">
+                    <div id="clockContainer">
+                        <div class="topBar"> clock.exe </div>
+                        <div id="clock">
+                            <canvas id="clockCanvas" height="350" width="350"></canvas>
+                        </div>
+                    </div>
+                    <div id="matrixRainContainer">
+                        <div class="topBar"> mjau022.exe </div>
+                        <div id="matrixRain">
+                            <canvas id="matrixRainCanvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="center">
-            <p id="datums">Tuesday 18th April 2023 10:53:35</p>
-        </div>
-        <div class="center">
-            <button id="modeButton" class="poga-style0" onclick="colorMode()">Color</button>
-            <a href="hangman.html"> <button id="modeButton" class="poga-style0">Hangman</button></a>
-        </div>
-        <script src="js/index.js"></script>
+        <script type="module">
+            import {drawClock} from './js/clock.mjs';
+            import {drawRain} from './js/matrix-rain.mjs';
+            setInterval(function () { drawRain(); drawClock()}, 33);
+        </script>
     </body>
 </html>
