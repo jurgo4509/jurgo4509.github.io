@@ -107,12 +107,12 @@ export function drawClock(){
             break;
     }
 
-    datums.innerHTML =     // laika izvade teksta formā
-    weekday[d.getDay()] + " " +
-    d.getDate() + dayEnd + " " +
-    months[d.getMonth()] + " " +
-    (d.getYear() + 1900) + " " +
-    hr + ':' +
-    (String(min).padStart(2, '0')) + ':' +
-    (String(sec).padStart(2, '0'));
+    // datums.innerHTML =     // laika izvade teksta formā
+    // weekday[d.getDay()] + " " +
+    // d.getDate() + dayEnd + " " +
+    // months[d.getMonth()] + " " +
+    // (d.getYear() + 1900) + " " +
+    // hr + ':' +
+    // (String(min).padStart(2, '0')) + ':' +
+    // (String(sec).padStart(2, '0'));
 }
