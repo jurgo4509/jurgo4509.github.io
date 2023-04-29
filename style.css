@@ -85,6 +85,7 @@ html, body {
 
                 #blogContainer {
                     flex: 1;
+                    max-height: calc(100vh - 144px);
                 }
 
                     #blog {
@@ -94,6 +95,7 @@ html, body {
                         font-size: 15pt;
                         font-family: 'Inconsolata', monospace;
                         text-align: center;
+                        overflow-y: scroll;
                     }
 
             #sidepage {
