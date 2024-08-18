@@ -1,56 +1,33 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>jurgo.org</title>
+        <title>klek.racing</title>
         <meta content="Joske" name="author">
-        <meta content="Joske webpage" name="description">
-        <meta content="jurgo.org" property="og:title" />
-        <meta content="Joske webpage" property="og:description" />
-        <meta content="https://jurgo.org/" property="og:url" />
-        <meta content="https://jurgo.org/content/stagea-pfp.png" property="og:image" />
+        <meta content="Klek racing webpage" name="description">
+        <meta content="klek.racing" property="og:title" />
+        <meta content="Klek racing webpage" property="og:description" />
+        <meta content="https://klek.racing/" property="og:url" />
+        <!-- <meta content="https://jurgo.org/content/stagea-pfp.png" property="og:image" /> -->
         <meta content="#76257E" data-react-helmet="true" name="theme-color" />
-        <link rel="stylesheet" href="style.css">
-        <link rel="icon" type="image/x-icon" href="/content/stagea-pfp.png">
+        <!-- <link rel="icon" type="image/x-icon" href="/content/stagea-pfp.png"> -->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+            body {
+              background-color: rgb(36, 36, 36);
+              font-family: "Ubuntu Mono", monospace;
+              font-weight: 400;
+              color: hsl(46, 100%, 47%);
+              text-align: center;
+            }    
+        </style>
     </head>
     <body>
         <div id="mainContainer" class="center">
-            <div id="horFlexContainer" class="center">
-                <div class="verFlexContainer" id="mainpage">
-                    <div id="titleContainer">
-                        <div class="topBar"> hello.exe </div>
-                        <div id="title">
-                            <p>jurgo.org</p>
-                        </div>
-                    </div>
-                    <div id="blogContainer">
-                        <div class="topBar"> stuff_things.exe </div>
-                        <div id="blog">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="verFlexContainer" id="sidepage">
-                    <div id="clockContainer">
-                        <div class="topBar"> clock.exe </div>
-                        <div id="clock">
-                            <canvas id="clockCanvas" height="350" width="350"></canvas>
-                        </div>
-                    </div>
-                    <div id="matrixRainContainer">
-                        <div class="topBar"> mjau022.exe </div>
-                        <div id="matrixRain">
-                            <canvas id="matrixRainCanvas"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <h2>klek.racing</h3>
+            <p>website under construction...</p>
+            <p>🚧</p>
         </div>
-        <script type="module">
-            import {drawClock} from './js/clock.mjs';
-            import {drawRain} from './js/matrix-rain.mjs';
-            setInterval(function () { drawRain(); drawClock()}, 33);
-        </script>
     </body>
 </html>
